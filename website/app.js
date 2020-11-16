@@ -1,6 +1,7 @@
 console.log("fdhdfsghd");
 let zip = document.getElementById("zip");
 let results = document.getElementById("results");
+let tbody = document.getElementById("tbody");
 let api =
   "http://api.openweathermap.org/data/2.5/weather?appid=ca1d4e22912cae57f8b984655e8a38ba";
 let server = "http://localhost:3000";
@@ -44,16 +45,14 @@ generate.addEventListener("click", async function() {
     });
     let data2 = await response2.json();
     let weather = data2.data;
-    debugger;
     let last = weather[weather.length - 1];
-    let htmlResults = show.reduce((acc, cv) => {
-      acc += `
-      <div>
-        <span>${cv.display}:</span>
-        <span>${last[cv.field]}</span>
-      </div>`;
-      return acc;
-    },"");
-    results.innerHTML = htmlResults;
+    let htmlResults = `
+      <tr>
+        <td>${last.userResponse}</td>
+        <td>${last.temperature}</td>
+        <td>${last.date}</td>
+      </tr>
+    `
+    tbody.innerHTML = htmlResults;
   }
 });
