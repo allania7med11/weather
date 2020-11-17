@@ -16,7 +16,7 @@
         <div class="controle">
             <div>
                 <label for="zip" class="label">ZIP CODE:</label>
-                <input type="text" id="zip" name="zip">
+                <input type="text" id="zip" name="zip" aria-placeholder="enter zip code here">
             </div>
             <div class="generate"><button id="generate">generate</button></div>
         </div>
@@ -32,6 +32,9 @@
                 </tr>
             </thead>
             <tbody id="tbody">
+                <tr>
+                    <td colspan="3">there is no available data</td>
+                </tr>
             </tbody>
         </table>
         <script src="js/data.js"></script>

@@ -43,7 +43,9 @@ const updateDataFromServer =async () => {
       });
     let data2 = await response2.json();
     let weather = data2.data;
-    let displayInfo = getdisplayInfos(weather);
-    let htmlInfos = gethtmlInfos(displayInfo);
-    tbody.innerHTML = htmlInfos;
+    if(weather.length>0){
+      let displayInfo = getdisplayInfos(weather);
+      let htmlInfos = gethtmlInfos(displayInfo);
+      tbody.innerHTML = htmlInfos;
+    }  
 }
