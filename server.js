@@ -5,6 +5,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static('website'));
 let projectData = [];
 app.get("/data", function(req, res) {
   res.send({ data: projectData });
