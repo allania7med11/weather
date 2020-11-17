@@ -5,31 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous"></script>
     <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body>
     <div class="app">
-        <div><label for="zip" class="label">ZIP CODE:</label></div>
-        <div><input type="text" id="zip" name="zip"></div>
-        <div><button id="generate">generate</button></div>
-        <div id="results"></div>
-        <table id="customers">
-            <caption>Weather History Search</caption>
-            <tr>
-                <thead>
-                    <tr>
-                        <th>Zip Code</th>
-                        <th>Temperature</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
+        <div class="controle">
+            <div>
+                <label for="zip" class="label">ZIP CODE:</label>
+                <input type="text" id="zip" name="zip">
+            </div>
+            <div class="generate"><button id="generate">generate</button></div>
+        </div>
+        <div id="messages"></div>
 
-            </tr>
+        <table id="history">
+            <caption class="label">Weather History Search</caption>
+            <thead>
+                <tr>
+                    <th>Zip Code</th>
+                    <th>Temperature</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
             <tbody id="tbody">
             </tbody>
         </table>
-        <script src="data.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/help.js"></script>
         <script src="app.js"></script>
     </div>
 </body>

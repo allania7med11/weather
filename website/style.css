@@ -1,4 +1,5 @@
 @import "./css/table.css";
+@import "./css/alert.css";
 body {
   margin: 0;
   padding: 0;
@@ -16,8 +17,16 @@ body {
   justify-content: center;
   text-align: center;
 }
+.controle{
+  display: flex;
+  align-items: flex-end;
+}
+.controle div{
+  padding: 5px;
+}
 .label {
-  font-size: 64px;
+  font-size: 24px;
+  font-style:oblique;
   color: white;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
@@ -33,12 +42,11 @@ input[type="text"] {
   box-sizing: border-box;
 }
 
-button {
+#generate {
   width: 100%;
   background-color: dimgray;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -50,6 +58,12 @@ button {
   background-repeat: no-repeat;
   padding-right: 60px;
 }
-button:hover{
+#generate:hover{
     background-color: black;
+}
+.generate{
+  padding-bottom: 20px!important;
+}
+#messages{
+  height: 50px;
 }

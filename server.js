@@ -9,9 +9,23 @@ let projectData = [];
 app.get("/data", function(req, res) {
   res.send({ data: projectData });
 });
+const different = (obj1, obj2) => {
+  if(obj2===undefined){
+    return true
+  }
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return true;
+    }
+  }
+  return false;
+};
 app.post("/data", function(req, res) {
   const { temperature, date, userResponse } = req.body;
-  projectData.push({ temperature, date, userResponse });
+  const obj = { temperature, date, userResponse };
+  if (different(obj, projectData[projectData.length - 1])) {
+    projectData.push(obj);
+  }
   res.send({ success: true });
 });
 

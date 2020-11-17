@@ -1,3 +1,11 @@
+let zip = document.getElementById("zip");
+let messages = document.getElementById("messages");
+let generate = document.getElementById("generate");
+let tbody = document.getElementById("tbody");
+let api =
+  "http://api.openweathermap.org/data/2.5/weather?appid=ca1d4e22912cae57f8b984655e8a38ba";
+let server = "http://localhost:3000";
+// let zip = "94040,us";
 window.data = {
   coord: {
     lon: -122.09,
