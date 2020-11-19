@@ -18,25 +18,37 @@
                 <label for="zip" class="label">ZIP CODE:</label>
                 <input type="text" id="zip" name="zip" aria-placeholder="enter zip code here">
             </div>
+            <div>
+                <label for="feelings" class="label">FEELINGS:</label>
+                <input type="text" id="feelings" name="feelings">
+            </div>
             <div class="generate"><button id="generate">generate</button></div>
         </div>
         <div id="messages"></div>
-
-        <table id="history">
-            <caption class="label">Weather History Search</caption>
-            <thead>
-                <tr>
-                    <th>Zip Code</th>
-                    <th>Temperature</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
-                <tr>
-                    <td colspan="3">there is no available data</td>
-                </tr>
-            </tbody>
-        </table>
+        <div id="entryHolder">
+            <div id="zipCode"></div>
+            <div id="content"></div>
+            <div id="temp"></div>
+            <div id="date"></div>
+        </div>
+        <div class="table">
+            <table id="history">
+                <caption class="label">Weather History Search</caption>
+                <thead>
+                    <tr>
+                        <th>Zip Code</th>
+                        <th>Feelings</th>
+                        <th>Temperature &deg;C</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr>
+                        <td colspan="3">there is no available data</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <script src="js/data.js"></script>
         <script src="js/help.js"></script>
         <script src="app.js"></script>

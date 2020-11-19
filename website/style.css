@@ -1,28 +1,37 @@
 @import "./css/table.css";
 @import "./css/alert.css";
+@import "./css/card.css";
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
+
 .app {
   background-image: url("./images/weather.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
+  padding: 5px;
 }
 .controle{
   display: flex;
   align-items: flex-end;
+  max-width: 800px ;
+  width: 85%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .controle div{
   padding: 5px;
+  max-width:200px ;
 }
 .label {
   font-size: 24px;
@@ -64,6 +73,6 @@ input[type="text"] {
 .generate{
   padding-bottom: 20px!important;
 }
-#messages{
-  height: 50px;
+.message{
+  display: none;
 }

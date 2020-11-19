@@ -1,4 +1,4 @@
-const getData = async (zip) => {
+const getData = async (api, zip) => {
   try {
     let response = await fetch(`${api}&zip=${zip}`, {
       method: "GET",
@@ -9,14 +9,12 @@ const getData = async (zip) => {
     console.log({ err });
   }
 };
-const getFakeData = () => {
-  return window.data;
-};
 const getdisplayInfos = (arr) => {
   let rtn = [];
   for (var i = arr.length - 1; i > -1; i--) {
     let elm = arr[i];
     rtn.push([
+      elm.zip,
       elm.userResponse,
       elm.temperature,
       moment.unix(elm.date).format("YYYY-MM-DDTHH:mm:ss"),
@@ -37,15 +35,62 @@ const gethtmlInfos = (arr) => {
   rtn = rtn.join("");
   return rtn;
 };
-const updateDataFromServer =async () => {
-    let response2 = await fetch(server + "/data", {
-        method: "GET",
-      });
-    let data2 = await response2.json();
-    let weather = data2.data;
-    if(weather.length>0){
-      let displayInfo = getdisplayInfos(weather);
-      let htmlInfos = gethtmlInfos(displayInfo);
-      tbody.innerHTML = htmlInfos;
-    }  
-}
+const getdisplayEntryHolder = (obj) => {
+  let rtn = [
+    {
+      id: "zipCode",
+      title: "ZIP CODE:",
+      value: obj.zip,
+      img: "./images/zipCode.jpg",
+    },
+    {
+      id: "content",
+      title: "FEELINGS:",
+      value: obj.userResponse,
+      img: "./images/feelings.jpg",
+    },
+    {
+      id: "temp",
+      title: "TEMPERATURE:",
+      value: obj.temperature + " &deg;C",
+      img: "./images/temperature.jpg",
+    },
+    {
+      id: "date",
+      title: "DATE:",
+      value: moment.unix(obj.date).format("YYYY-MM-DDTHH:mm:ss"),
+      img: "./images/time.jpg",
+    },
+  ];
+  return rtn;
+};
+const gethtmlEntryHolder = (arr) => {
+  entryHolder.style.display = "flex";
+  for (var i = 0; i < arr.length; i++) {
+    let elm = arr[i];
+    entryHolderChildren[elm.id].innerHTML = `
+    <div class="card" style="background-image:url('${elm.img}') ">
+      <div class="title">${elm.title}</div>
+      <div class="value">${elm.value}</div>
+    </div>
+    `;
+  }
+  return;
+};
+const updateDataFromServer = async (update) => {
+  let response2 = await fetch(server + "/data", {
+    method: "GET",
+  });
+  let { history, projectData } = await response2.json();
+  if (history.length > 0) {
+    let displayInfo = getdisplayInfos(history);
+    let htmlInfos = gethtmlInfos(displayInfo);
+    tbody.innerHTML = htmlInfos;
+  }
+  if (update) {
+    document.getElementById("info0").classList.add("new");
+    let displayEntryHolder = getdisplayEntryHolder(projectData);
+    gethtmlEntryHolder(displayEntryHolder);
+  }
+  return;
+};
