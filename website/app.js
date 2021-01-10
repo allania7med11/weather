@@ -1,4 +1,4 @@
-const URL = "http://api.openweathermap.org/data/2.5/weather?"
+const URL = "https://api.openweathermap.org/data/2.5/weather?"
 const API_KEY = "appid=ca1d4e22912cae57f8b984655e8a38ba&units=metric"
 let api = URL + API_KEY;
 updateDataFromServer();
