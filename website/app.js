@@ -1,12 +1,10 @@
-const URL = "https://api.openweathermap.org/data/2.5/weather?"
-const API_KEY = "appid=ca1d4e22912cae57f8b984655e8a38ba&units=metric"
-let api = URL + API_KEY;
 updateDataFromServer();
 generate.addEventListener("click", async function() {
   messages.style.display="none"
   messages.innerHTML = "";
   entryHolder.style.display="none"
-  getData(api,zip.value)
+  debugger
+  getData(zip.value)
     .then(function(data) {
       if ("message" in data) {
         messages.style.display="flex"
@@ -25,7 +23,7 @@ generate.addEventListener("click", async function() {
       return info;
     })
     .then(function(info) {
-      return fetch(server + "/data", {
+      return fetch("/data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",

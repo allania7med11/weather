@@ -11,6 +11,5 @@ let entryHolderChildren = {
 };
 let tbody = document.getElementById("tbody");
 
-let server = "http://localhost:3000";
 // let zip = "94040,us";
 

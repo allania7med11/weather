@@ -1,12 +1,13 @@
-const getData = async (api, zip) => {
+const getData = async (zip) => {
   try {
-    let response = await fetch(`${api}&zip=${zip}`, {
+    let response = await fetch(`/openweathermap/${zip}`, {
       method: "GET",
     });
     let data = await response.json();
     return data;
   } catch (err) {
     console.log({ err });
+    throw err
   }
 };
 const getdisplayInfos = (arr) => {
@@ -78,7 +79,7 @@ const gethtmlEntryHolder = (arr) => {
   return;
 };
 const updateDataFromServer = async (update) => {
-  let response2 = await fetch(server + "/data", {
+  let response2 = await fetch("/data", {
     method: "GET",
   });
   let { history, projectData } = await response2.json();
