@@ -34,7 +34,7 @@ then open localhost:8080 to view application.
 5.To test run:
 npm run test
 ## Deployment Link
-https://discovertunisia.netlify.app/
+https://zipweather.herokuapp.com/
 
 ## Hint
 for testing you can use this API_KEY: API_KEY=ca1d4e22912cae57f8b984655e8a38ba
