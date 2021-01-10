@@ -18,7 +18,7 @@ app.post("/data", function(req, res) {
   history.push(obj);
   res.send({ success: true });
 });
-
-app.listen(3000, function() {
-  console.log("server is running");
+let port = process.env.PORT || 8080;
+app.listen(port, function() {
+  console.log(`server is running on port ${port}`);
 });
